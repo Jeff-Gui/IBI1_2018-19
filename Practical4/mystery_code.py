@@ -1,5 +1,11 @@
 # What does this piece of code do?
-# Answer: The code can find a prime number between 1 and 100, and 1 is also included in the result.
+# Answer: The code can find a prime number between 1 and 100, 
+#and 1 is also included in the result.
+
+#this is because is n has a factor bigger than [square root of n], there should be 
+#a factor smalle than that.
+#therefore, if a factor cannot be found smaller than [square root of n], n should be a prime number
+#Acknowledgement: Alana explained the math reasoning above to be.
 
 # Import libraries
 # randint allows drawing a random number, 
@@ -21,7 +27,7 @@ while p==False:#the loop is controlled by Boolean variables
             p=False
         #if we can find factors of n between 2 and u+1, choose another n
         #if the n has no factor between 2 and u+1
+        #-jeff in fact, range(2,2) won't run when n=u=1
 
 print(n)
             
-#it seems that n is very likely to be a prime number (except for 1)
