@@ -1,5 +1,5 @@
 # What does this piece of code do?
-# Answer: The code can find a random prime number between 1 and 100.
+# Answer: The code can find a random prime number between 1 and 100 including 1
 
 # Import libraries
 # randint allows drawing a random number, 
@@ -24,3 +24,4 @@ while p==False:#the loop is controlled by Boolean variables
 
 print(n)
             
+#it seems that n is very likely to be a prime number (except for 1)
