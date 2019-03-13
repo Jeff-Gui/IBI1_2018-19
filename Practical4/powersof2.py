@@ -17,7 +17,7 @@ Created on Wed Mar 13 10:04:56 2019
 #for the last item, no "+" is needed
 #print the output
 
-n = 1233
+n = 2019
 t = 1
 output = str(n) + " is "
 while (n != 0):
