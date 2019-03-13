@@ -1,0 +1,16 @@
+In this practical, I learnt that files in specific folder can be created in folder under a repository through following steps:
+Click "View all files";
+Move the cursor on the folder;
+Right click, then click on "create a file in this folder".
+*simply right click the blank part of the file viewer can create a file,
+however, this file is under the working repository.
+Additionally, click command+P opens "fuzzy finder" so that I can search for certain command.
+    For example, create an file.
+
+During the pratical, I wondered how to edit the git page <username>.git.io through Readme.md.
+Mela told me that if index.md and Readme.md coexist in the repository of the page,
+git will only use the information in index.md.
+When index.md is deleted, then Readme.md can be used to edit the git page.
+
+Everytime I fork a project, I can play around with it withour changing the original repository.
+That is really convenient for program development and branching of it.
