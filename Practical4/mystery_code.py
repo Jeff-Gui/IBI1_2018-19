@@ -5,7 +5,7 @@
 #this is because is n has a factor bigger than [square root of n], there should be 
 #a factor smalle than that.
 #therefore, if a factor cannot be found smaller than [square root of n], n should be a prime number
-#Acknowledgement: Alana explained the math reasoning above to be.
+#Acknowledgement: Alana explained the math reasoning above to me.
 
 # Import libraries
 # randint allows drawing a random number, 

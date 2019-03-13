@@ -17,19 +17,17 @@ Created on Wed Mar 13 10:04:56 2019
 #for the last item, no "+" is needed
 #print the output
 
-n = 8192
+n = 1233
 t = 1
 output = str(n) + " is "
 while (n != 0):
-    while 2**t < n:
+    while 2**t <= n:
         t = t + 1
     n = n - 2**(t-1)
-    print(t)
-    if t != 1:
-        output = output + "2**" + str(t-1) + " + "
-    else:
+    if n == 0:
         output = output + "2**" + str(t-1)
         break
+    output = output + "2**" + str(t-1) + " + "
     t=1
 print(output)
     
