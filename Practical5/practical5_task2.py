@@ -18,8 +18,12 @@ for string in mylist:
 answer: string[::-1] create a new list, by giving a reference to the string, it won't change the object also called by string
 """
 mylist.sort()
-#.sort() output NONE,
-#therefore, sorted(list_name) == list_name.sort()
+"""
+.sort() output NONE,
+therefore, sorted(list_name) == list_name.sort()
+also, you cannot operate on it with function
+for example, reversed(mylist.sort()) is no use
+"""
 mylist.reverse()
 
 print(mylist)
