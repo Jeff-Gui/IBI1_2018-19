@@ -1,0 +1,8 @@
+Dear User,
+
+Please find the results of your gene set linkage analysis result in attached file.
+
+This is an email sent by the server, please don't reply.
+
+Thank you for using GSLA.
+
