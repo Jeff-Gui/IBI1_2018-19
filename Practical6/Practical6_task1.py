@@ -43,7 +43,7 @@ body = open('body.txt')
 text = ''
 for line in body:
     text += line #read the body
-
+body.close()
         #send email
 for i in range(0,len(adlist)):
     correct_text = re.sub(r'User', nmlist[i], text)
@@ -55,9 +55,8 @@ for i in range(0,len(adlist)):
         print ("Error")
 server.quit()
 
-
 #from 菜鸟教程
-"""
+
 sender = input('sender address:')
 mail_user = input('your name:')
 mail_host = 'smtp.' + re.findall('@(.+)', sender)[0]
@@ -68,8 +67,8 @@ for i in range(0, len(adlist)):
     
     body = 'Dear ' + nmlist[i]+ ':\n' + 'Please find the results of your gene set linkage analysis result in attached file.\nThis is an email sent by the server, please don\'t reply.\nThank you for using GSLA.' 
     message = MIMEText(body, 'plain', 'utf-8')
-    #message['From'] = Header(sblist[i], 'utf-8')
-    #message['To'] =  Header(sblist[i], 'utf-8')
+    message['From'] = Header(sblist[i], 'utf-8')
+    message['To'] =  Header(sblist[i], 'utf-8')
 
     message['Subject'] = Header(sblist[i], 'utf-8')
      
@@ -83,4 +82,3 @@ for i in range(0, len(adlist)):
     except smtplib.SMTPException:
         print ("Error")
 smtpObj.quit()
-    
