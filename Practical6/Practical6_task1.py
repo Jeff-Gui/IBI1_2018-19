@@ -35,9 +35,6 @@ for line in fl1:
 sender = input('sender address:')
 sev_ad = 'smtp.' + re.findall('@(.+)', sender)[0]
 pw = input('password:')
-server = smtplib.SMTP(sev_ad,25)
-server.login(sender, pw)
-print('From:'+ sender)
 
 body = open('body.txt')
 text = ''
@@ -45,40 +42,20 @@ for line in body:
     text += line #read the body
 body.close()
         #send email
+server = smtplib.SMTP(sev_ad,25)
+server.login(sender, pw)
+print('From:'+ sender)
+
 for i in range(0,len(adlist)):
     correct_text = re.sub(r'User', nmlist[i], text)
-    msg = MIMEText(correct_text, 'palin', 'utf-8')
+    msg = MIMEText(correct_text, 'plain', 'utf-8')
+    msg['Subject'] = Header(sblist[i], 'utf-8')
+    msg['From'] = Header(sender, 'utf-8')
+    msg['To'] =  Header(adlist[i], 'utf-8')
     try:
-        server.sendmail(sender, [adlist[i]], msg.as_string())
+        server.sendmail(sender, [adlist[i]], str(msg))
         print ("Mail sent successfully!")
     except smtplib.SMTPException:
         print ("Error")
-server.quit()
-
-#from 菜鸟教程
-
-sender = input('sender address:')
-mail_user = input('your name:')
-mail_host = 'smtp.' + re.findall('@(.+)', sender)[0]
-mail_pass = input('password:')    
-
-for i in range(0, len(adlist)):
-    receivers = [adlist[i]]
     
-    body = 'Dear ' + nmlist[i]+ ':\n' + 'Please find the results of your gene set linkage analysis result in attached file.\nThis is an email sent by the server, please don\'t reply.\nThank you for using GSLA.' 
-    message = MIMEText(body, 'plain', 'utf-8')
-    message['From'] = Header(sblist[i], 'utf-8')
-    message['To'] =  Header(sblist[i], 'utf-8')
-
-    message['Subject'] = Header(sblist[i], 'utf-8')
-     
-     
-    try:
-        smtpObj = smtplib.SMTP() 
-        smtpObj.connect(mail_host, 25)   
-        smtpObj.login(mail_user,mail_pass)
-        smtpObj.sendmail(sender, receivers, message.as_string())
-        print ("Mail sent successfully!")
-    except smtplib.SMTPException:
-        print ("Error")
-smtpObj.quit()
+server.quit()
