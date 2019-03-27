@@ -6,12 +6,12 @@ Created on Wed Mar 27 08:50:52 2019
 @author: jefft
 """
 
-#-----FIND LEGAL ADDRESS-------
 import re
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 
+#-----FIND LEGAL ADDRESS-------
 fl1 = open('address_information.csv')
 adlist = []
 nmlist = []
@@ -28,30 +28,32 @@ for line in fl1:
         sblist += [mylist[2]]
     else:
         print(mylist[1],':Wrong Adress!')
+fl1.close()
     
 #-----SEND EMAIL-------
-        #login server
-
+    #collect information
 sender = input('sender address:')
-sev_ad = 'smtp.' + re.findall('@(.+)', sender)[0]
+sev_ad = 'smtp.' + re.findall('@(.+)', sender)[0] #deduce server name
 pw = input('password:')
-
+    #read email body from body.txt
 body = open('body.txt')
 text = ''
 for line in body:
-    text += line #read the body
+    text += line #read body line by line
 body.close()
-        #send email
-server = smtplib.SMTP(sev_ad,25)
-server.login(sender, pw)
+    #send email
+server = smtplib.SMTP(sev_ad,25) #setup SMTP object, port for server is 25
+server.login(sender, pw) #connect and login can be done at the same time, or use server.connect() to connect first
 print('From:'+ sender)
 
 for i in range(0,len(adlist)):
-    correct_text = re.sub(r'User', nmlist[i], text)
+    correct_text = re.sub(r'User', nmlist[i], text) #replace 'User' with correct name
+        #setup message, plain means no-format, utf-8 ensures Chinese character can be read
     msg = MIMEText(correct_text, 'plain', 'utf-8')
     msg['Subject'] = Header(sblist[i], 'utf-8')
     msg['From'] = Header(sender, 'utf-8')
     msg['To'] =  Header(adlist[i], 'utf-8')
+        #actually send the email
     try:
         server.sendmail(sender, [adlist[i]], str(msg))
         print ("Mail sent successfully!")
