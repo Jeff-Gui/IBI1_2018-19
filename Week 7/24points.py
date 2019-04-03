@@ -53,19 +53,19 @@ def compute(x,y,op):
     elif op=='-':return x-y
     else:return x/y if y else None
 
-def exp(p,iter=0):
+def exp(p,ite=0):
     global count
     from itertools import permutations
     if len(p)==1:
         return [(p[0],str(p[0]))]
     operation = ['+','-','*','/']
     ret = []
-    p = permutations(p) if iter==0 else [p] #permutation function will output any possible combinaitons of numbers with ORDER, combinations are saved as arrays
+    p = permutations(p) if ite==0 else [p] #permutation function will output any possible combinaitons of numbers with ORDER, combinations are saved as arrays
     for array_n in p:
         #print(array_n)
         for num in range(1,len(array_n)): #split the combination array into 2 parts, cover every part
-            ret1 = exp(array_n[:num],iter+1)
-            ret2 = exp(array_n[num:],iter+1)
+            ret1 = exp(array_n[:num],ite+1)
+            ret2 = exp(array_n[num:],ite+1)
             for op in operation:
                 for va1,expression in ret1:
                     if va1==None:continue
@@ -75,14 +75,13 @@ def exp(p,iter=0):
                         combined_exp += '{}' if expression2.isalnum() else '({})'
                         new_val = compute(va1,va2,op)
                         ret.append((new_val,combined_exp.format(expression,op,expression2)))
-                        if iter==0 and new_val==24:
+                        if ite==0 and new_val==24:
                             return ''.join(e+'\n' for x,e in ret if x==24)
                         count += 1
     return ret
 
 if y:
-    print(exp(nm))
-    
+    exp(nm)
     print('Recursion times:', count)
 
 count = 0
