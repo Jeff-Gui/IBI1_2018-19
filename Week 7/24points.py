@@ -15,7 +15,7 @@ for i in range(0,len(nm)):
     try:
         if float(nm[i]) == int(nm[i]):
             nm[i] = int(nm[i])
-        y = True
+            y = True
         if not 0 < nm[i] < 24:
             print('The input number must be integers from 1 to 23')
     except:
@@ -60,10 +60,10 @@ def exp(p,iter=0):
         return [(p[0],str(p[0]))]
     operation = ['+','-','*','/']
     ret = []
-    p = permutations(p) if iter==0 else [p]
+    p = permutations(p) if iter==0 else [p] #permutation function will output any possible combinaitons of numbers with ORDER, combinations are saved as arrays
     for array_n in p:
         #print(array_n)
-        for num in range(1,len(array_n)):
+        for num in range(1,len(array_n)): #split the combination array into 2 parts, cover every part
             ret1 = exp(array_n[:num],iter+1)
             ret2 = exp(array_n[num:],iter+1)
             for op in operation:
@@ -81,9 +81,14 @@ def exp(p,iter=0):
     return ret
 
 if y:
-    exp(nm)
+    print(exp(nm))
     
     print('Recursion times:', count)
 
 count = 0
-    
+
+"""
+from itertools import permutations
+p = permutations([1,2,3])
+ret1 = exp()
+"""
