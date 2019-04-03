@@ -52,7 +52,10 @@ def compute(x,y,op):
     elif op=='*':return x*y
     elif op=='-':return x-y
     else:return x/y if y else None
-
+"""
+.isalnum: test if a string is only composed of number and letters (no white space or '()'-like)
+.format: formalize a string
+"""
 def exp(p,ite=0):
     global count
     from itertools import permutations
@@ -91,3 +94,4 @@ from itertools import permutations
 p = permutations([1,2,3])
 ret1 = exp()
 """
+
