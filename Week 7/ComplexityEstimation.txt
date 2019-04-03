@@ -1,0 +1,5 @@
+24points
+requirement
+- n ints, make 24, trying to cover any possible computation among these numbers
+- no need to output the actual way of getting 24
+- count how many steps are executed
