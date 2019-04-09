@@ -116,7 +116,6 @@ def point24(t):
 point24([1,2,3,4])
 #------------------------------------------------------------------------------
 from fractions import Fraction
-from itertools import permutations
 count = 0
 solution = 0
 y = False
@@ -140,46 +139,47 @@ def dfs(n):
     if n == 1:
         if (float(nm[0])==24):
             solution += 1
-            return 1
+            return 1    #if 1 is returned when n=1, than every step when it goes back, 1 will be constantly returned, 
         else:
-            return 0
-    nm = permutations(nm)
-    for ay in nm:
-        ay = list(ay)
-        for i in range(0,n):
-            for j in range(i+1,n): #cover every possible combination of 2 numbers in the list
-                a = ay[i]
-                b = ay[j]
-                ay[j] = ay[n-1]
+            return 0        
+    for i in range(0,n):
+        for j in range(i+1,n): #cover every possible combination of 2 numbers in the list
+            a = nm[i]
+            b = nm[j]
+            nm[j] = nm[n-1] #?
                 
-                ay[i] = a+b
-                if(dfs(n-1)):
-                    return 1
+            nm[i] = a+b
+            if (dfs(n-1)):
+                return 1
                 
-                ay[i] = b-a
-                if(dfs(n-1)):
-                    return 1
+            nm[i] = b-a
+            if (dfs(n-1)):
+                return 1
+            
+            nm[i] = a-b
+            if (dfs(n-1)):
+                return 1
                 
-                ay[i] = a*b
+            nm[i] = a*b
+            if (dfs(n-1)):
+                return 1
+                
+            if a:
+                nm[i] = Fraction(b,a)
                 if (dfs(n-1)):
                     return 1
                 
-                if a:
-                    ay[i] = Fraction(b,a)
-                    if (dfs(n-1)):
-                        return 1
+            if b:
+                nm[i] = Fraction(a,b)
+                if (dfs(n-1)):
+                    return 1
                 
-                if b:
-                    ay[i] = Fraction(a,b)
-                    if (dfs(n-1)):
-                        return 1
-                
-                ay[i] = a
-                ay[j] = b
+            nm[i] = a
+            nm[j] = b #restore the list
     return 0
 
-if (dfs(len(nm))):
+if (dfs(len(nm))): #finally returns 0
     print('Yes')
-else:
+else:               #finally returns 1
     print('No')
 print('Recursion times:',count,'Solution:',solution)
