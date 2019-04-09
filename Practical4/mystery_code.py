@@ -30,4 +30,5 @@ while p==False:#the loop is controlled by Boolean variables
         #-jeff in fact, range(2,2) won't run when n=u=1
 
 print(n)
+
             
