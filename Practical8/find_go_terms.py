@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Apr  9 21:32:20 2019
-
+    This script
 @author: jefft
 """
 #http://geneontology.org/docs/ontology-documentation/
@@ -55,12 +55,12 @@ import xml.dom.minidom
 import pandas as pd
 import re
 
-
+#create DOM tree
 DOMTree = xml.dom.minidom.parse('go_obo.xml')
 collection = DOMTree.documentElement
 
 #tms = collection.getElementsByTagName('term')
-nodes = collection.getElementsByTagName('defstr') 
+defnd = collection.getElementsByTagName('defstr') 
 is_a = collection.getElementsByTagName('is_a') 
 
 """
@@ -71,20 +71,26 @@ def child(x): #x is a text string
         for isa in is_a:
             if x == isa.childNodes[0].data:
                 count += 1
-                count += child(tm.getElementsByTagName('id')[0].childNodes[0])
+                count += child(tm.getElementsByTagName('id')[0].childNodes[0].data)
             return count
 """
 dic = {'id':[],'name':[],'definition':[],'childnodes':[]}
 res = set('')
 def child(x,res):
+    """
+    x: id number of parent terms
+    res: empty set storing all id numbers of child terms
+    """
     for j in range(0, is_a.length):
         if x == is_a[j].childNodes[0].data:
             iden = is_a[j].parentNode.getElementsByTagName('id')[0].childNodes[0].data
             res.add(iden)
             child(iden,res)
-    
-for i in range(0, nodes.length):
-    defelm = nodes[i].childNodes[0]
+"""
+
+#---------------------------MAIN SCRIPT----------------------------------------    
+for i in range(0, defnd.length):
+    defelm = defnd[i].childNodes[0]
     if re.search('autophagosome', defelm.data):
         term = defelm.parentNode.parentNode.parentNode #parent of the defstr element is <defstr> node
         ide = term.getElementsByTagName('id')[0].childNodes[0].data
@@ -97,11 +103,8 @@ for i in range(0, nodes.length):
         dic['name'].append(name)
         dic['definition'].append(defstr)
         dic['childnodes'].append(children)
-        #use a function to find number of childnodes
 
 
 
 dt = pd.DataFrame(dic)
 dt.to_excel('autophagosome.xlsx', sheet_name='Sheet1')
-
-    
