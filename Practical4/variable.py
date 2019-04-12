@@ -7,7 +7,7 @@ Created on Wed Mar 13 09:17:58 2019
 """
 #simple math
 a = 820
-b = 592592
+b = 820820
 print(b % 7 == 0)
 c = b/7
 d = c/11
