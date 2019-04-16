@@ -49,8 +49,9 @@ from GO homepage:
 """
 
 import os
-os.chdir('/Users/jefft/Desktop/ZJE/IBI(local)/git_repository/IBI1_2018-19/Practical8')
+os.chdir('/Users/jefft/Desktop/ZJE/IBI(local)/git_repository/IBI1_2018-19/Practical8') #change working directory
 
+#----------------------------SETUP--------------------------------------------
 import xml.dom.minidom
 import pandas as pd
 import re
@@ -64,6 +65,7 @@ defnd = collection.getElementsByTagName('defstr')
 is_a = collection.getElementsByTagName('is_a') 
 
 """
+An alternative approach to count child nodes
 def child(x): #x is a text string
     count = 0
     for tm in tms:
@@ -75,6 +77,7 @@ def child(x): #x is a text string
             return count
 """
 dic = {'id':[],'name':[],'definition':[],'childnodes':[]}
+
 res = set('')
 def child(x,res):
     """
@@ -82,11 +85,11 @@ def child(x,res):
     res: empty set storing all id numbers of child terms
     """
     for j in range(0, is_a.length):
-        if x == is_a[j].childNodes[0].data:
-            iden = is_a[j].parentNode.getElementsByTagName('id')[0].childNodes[0].data
-            res.add(iden)
-            child(iden,res)
-"""
+        if x == is_a[j].childNodes[0].data: #if parent node id (x) is equal to child node is_a item
+            iden = is_a[j].parentNode.getElementsByTagName('id')[0].childNodes[0].data #get the id of chile node
+            res.add(iden) #put child node id into it
+            child(iden,res) #now, the child node has become parent node and iterate until if condiontion does not hold -> no child node
+
 
 #---------------------------MAIN SCRIPT----------------------------------------    
 for i in range(0, defnd.length):
@@ -106,5 +109,6 @@ for i in range(0, defnd.length):
 
 
 
-dt = pd.DataFrame(dic)
+dt = pd.DataFrame(dic) #data frame can be created through a dictionary with coloum name = keys
 dt.to_excel('autophagosome.xlsx', sheet_name='Sheet1')
+
