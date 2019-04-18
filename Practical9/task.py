@@ -48,7 +48,7 @@ for i in range(0, len(seq_h)):
         diffseq += seq_h[i]
     score += bls62[(seq_h[i],seq_m[i])]
 seqlen = len(seq_h)
-print('\nSOD2_human (NP_000627.2)\n', seq_h ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nSOD2_mouse (NP_038699.2)\n', seq_m)
+print('\nSOD2_human (NP_000627.2)\n', seq_h ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nSOD2_mouse (NP_038699.2)\n', seq_m, sep='')
 print('\nBLOSUM62 score:', score, '\nIdentity:', '{:.2%}'.format(1-diff/len(seq_h)))
 
 score = 0
@@ -62,8 +62,8 @@ for i in range(0, len(seq_h)):
         diffseq += seq_m[i]
     score += bls62[(seq_m[i],seq_r[i])]
 seqlen = len(seq_h)
-print('\nSOD2_mouse (NP_038699.2)\n', seq_m ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nRandomSeq\n', seq_r)
-print('\nBLOSUM62 score:', score, '\nIdentity:', '{:.2%}'.format(1-diff/len(seq_m)))
+print('\nSOD2_mouse (NP_038699.2)\n', seq_m ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nRandomSeq\n', seq_r, sep='')
+print('\nBLOSUM62 score:', score, '\nIdentity:', '{:.2%}'.format(1-diff/len(seq_m))) #string formating: keep 2 digits of decimals
 
 score = 0
 diff = 0
@@ -76,10 +76,15 @@ for i in range(0, len(seq_h)):
         diffseq += seq_h[i]
     score += bls62[(seq_h[i],seq_r[i])]
 seqlen = len(seq_h)
-print('\nSOD2_human (NP_000627.2)\n', seq_h ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nRandomSeq\n', seq_r)
+print('\nSOD2_human (NP_000627.2)\n', seq_h ,'\n\n ~ \n', diffseq, '\n ~ \n', '\nRandomSeq\n', seq_r, sep='')
 print('\nBLOSUM62 score:', score, '\nIdentity:', '{:.2%}'.format(1-diff/len(seq_h)))
 
 
-    
-    
-    
+#--------OTHER appraoches to convert txt file into panda dataframe-------------
+import pandas as pd
+#http://pandas.pydata.org/pandas-docs/stable/
+data = pd.read_csv('BLOSUM62.txt',sep=' +')
+dic = data.to_dict()
+#to index the "dict in the dict"
+dic['A']['P']
+
