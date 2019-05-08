@@ -19,6 +19,8 @@ count1 = 0
 count2 = 0
 for i in range(0,100,10):
     vc =int(N*i/100)
+    if N==vc:
+        sp=[N-vc]
     sp=[N-vc-1]
     ift=[1]
     rcv=[0]
