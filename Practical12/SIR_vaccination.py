@@ -35,13 +35,11 @@ for i in range(0,100,10):
         count1, count2 = 0, 0 #reset
     list_inf.append(ift)
 #========================plot==================================================
+plt.figure(figsize=(6,4),dpi=150)
 x = [y for y in range(1,1001)]
 for u in range(0,10):
     plt.plot(x,list_inf[u],label=str(u*10)+'%')
 plt.xlabel('time')
 plt.ylabel('number of people')
 plt.legend()
-plt.show()
-
-#plt.figure(figsize=(6,4),dpi=150)
-#plt.savefig("SIR_vaccination", type="png")
+plt.savefig("SIR_vaccination", type="png")

@@ -33,6 +33,7 @@ for t in range(1,1000):
     count1, count2 = 0, 0 #reset
 
 #========================plot==================================================
+plt.figure(figsize=(6,4),dpi=150)
 x = [y for y in range(1,1001)]
 plt.plot(x,sp,label='susceptible')
 plt.plot(x,ift,label='infected')   
@@ -40,6 +41,4 @@ plt.plot(x,rcv,label='recovered')
 plt.xlabel('time')
 plt.ylabel('number of people')
 plt.legend() 
-plt.show()
-plt.figure(figsize=(6,4),dpi=150)
 plt.savefig("simple SIR", type="png")
