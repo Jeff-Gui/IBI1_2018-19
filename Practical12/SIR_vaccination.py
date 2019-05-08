@@ -23,7 +23,7 @@ for i in range(0,100,10):
     ift=[1]
     rcv=[0]
     for t in range(1,1000):
-        for item in np.random.choice(range(2),sp[t-1],p=[1-beta*sp[t-1]/N, beta*sp[t-1]/N]): #yield infected people
+        for item in np.random.choice(range(2),sp[t-1],p=[1-beta*ift[t-1]/N, beta*ift[t-1]/N]): #yield infected people
             if item==1:
               count1 += 1
         sp.append(sp[t-1]-count1)
