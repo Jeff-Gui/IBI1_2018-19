@@ -1,1 +1,7 @@
-- Was it easy? Was it hard? Were there bits you enjoyed more (or less) than others? What was the most important thing you learned?
+-I learnt that probabilistic model features random operations like random.choice() function used herein. The specific amount of number chosen randomly can hardly equals to the results from determinable models.
+
+-The coding challenge mainly is about the use of "ndarray" and "pyplot", especially operation of elements in ndarray and setting of the figure legends. For example, elements in the array can be summed up by simply using .sum(), which is more elegant than looping over it. Additionally, plt.show() can replace the figure plotted with a blank one and should not be used before plt.savefig() and plt.figure().
+
+-I find it easy after gradually understood the concept of probabilistic modeling. Even in spatial SIR model, the trick is simply to map 2D coordinates with 1D array yielded from .random.choice(). To restrict the plotting of the point to be infected inside the population, I used <try> logic. However, I did not know <try> has to be followed with <except - pass> even if nothing need to be done with an error. Moreover, negative values can be indexed to points on the opposite of the population, which required another level of control.
+
+-Basically I really enjoyed spatial plot of SIR model as it is so much visualized. I do not like my computer's slow processing speed. I hope I could learn some better algorithms of modeling in the future.
