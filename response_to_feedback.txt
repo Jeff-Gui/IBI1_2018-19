@@ -1,0 +1,2 @@
+Response to feedback
+In file variables.py of week4, I have changed variable b to be writing variable a twice in a row. That is, b = 820820.
