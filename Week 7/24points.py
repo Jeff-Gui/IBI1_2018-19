@@ -71,7 +71,7 @@ def dfs(n):
             nm[j] = nm[n-1] #put the last item into the place to be operated next time
             for char in ['+','-','r-','*','/','r/']: #'r-' is reverse minus (y-x),'r/' is reverse divide (y/x)
                 nm[i] = compute(a,b,char,i)
-                if (dfs(n-1)): # if find a solution, than return 1 -> not executed
+                if (dfs(n-1)): # if find a solution, then return 1 -> not executed
                     return 1
             # if cannot find a solution, than not executed (already return)
             nm[i] = a
