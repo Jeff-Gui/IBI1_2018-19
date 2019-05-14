@@ -42,5 +42,6 @@ for u in range(0,11):
     plt.plot(x,list_inf[u],label=str(u*10)+'%',color=cm.gnuplot2(u*20)) #plot graphs in one figure with loops
 plt.xlabel('time')
 plt.ylabel('number of people')
+plt.title('SIR model with different vaccination rates')
 plt.legend()
 plt.savefig("SIR_vaccination", type="png")

@@ -25,14 +25,16 @@ while i:
 num = list(map(int,numList))  
 #recursion times
 count = 0 
-
+solution = 0
 #n is len(num) 
 def dfs(n):
     global count
+    global solution
     count = count +1
     
     if n == 1:
         if(float(num[0])==24):
+            solution += 1
             return 1
         else:
             return 0
@@ -79,4 +81,3 @@ if (dfs(len(num))):
 else: 
     print('No')
 print('Recursion times:',count)
-

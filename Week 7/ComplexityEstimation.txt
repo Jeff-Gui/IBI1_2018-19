@@ -1,5 +1,26 @@
 24points
-requirement
+Requirement
 - n ints, make 24, trying to cover any possible computation among these numbers
 - no need to output the actual way of getting 24
-- count how many steps are executed
+- count recursion times: how many times the function has been called
+
+Algorithm
+For list with length n,
+construct n levels recursion.
+In each level, loop over the numbers from the 1st to nth (current region)
+For each number found before, loop over the rest in the current region
+In each level, operate on the first and the second numbers of the list (possible operation: +,-(with order),*,/(with order, use fraction to avoid impreciseness)
+-> totally 6 operations
+In each level after operation, put the number at level n into the second position for next recrusion
+At level 1, check if the first position is 24
+
+Complexity
+In the level of n
+For 1st number, loop over the rest n-1 numbers
+For 2rd number, loop over the rest n-2 numbers
+...
+For (n-1)th number, loop over the rest 1 number
+-> 2 loops contribute (n-1)! complexity
+Inside each deepest loop, 6 operations all enter next level recursion
+Overall complexity:
+O(6*(n-1)!)=O((n-1)!)
