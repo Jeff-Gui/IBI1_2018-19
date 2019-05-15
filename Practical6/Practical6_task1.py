@@ -35,8 +35,7 @@ fl1.close()
     #collect information
 sender = input('sender address: \n')
 sev_ad = 'smtp.' + re.findall('@(.+)', sender)[0] #deduce server name
-import getpass
-pw = getpass.getpass('password: ') #collect password while not showing in the console *QtConsole does not support the feature
+pw = input('password: ') #collect password
     
     #read email body from body.txt
 body = open('body.txt')
