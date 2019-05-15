@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!-- generated with COPASI 4.24 (Build 197) (http://www.copasi.org) at 2019-05-15 03:50:46 UTC --><?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?><COPASI copasiSourcesModified="0" versionDevel="197" versionMajor="4" versionMinor="24" xmlns="http://www.copasi.org/static/schema">
+<?xml version="1.0" ?><!-- generated with COPASI 4.24 (Build 197) (http://www.copasi.org) at 2019-05-15 04:03:40 UTC --><?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?><COPASI copasiSourcesModified="0" versionDevel="197" versionMajor="4" versionMinor="24" xmlns="http://www.copasi.org/static/schema">
   <ListOfFunctions>
     <Function key="Function_13" name="Mass action (irreversible)" reversible="false" type="MassAction">
       <MiriamAnnotation>
@@ -165,7 +165,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_1" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_5003" name="k1" value="0.109571"/>
+          <Constant key="Parameter_5003" name="k1" value="0.455606"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -195,7 +195,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Substrate metabolite="Metabolite_0" stoichiometry="1"/>
         </ListOfSubstrates>
         <ListOfConstants>
-          <Constant key="Parameter_5002" name="k1" value="0.703462"/>
+          <Constant key="Parameter_5002" name="k1" value="0.914965"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -227,7 +227,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_1" stoichiometry="2"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_5001" name="k1" value="0.689422"/>
+          <Constant key="Parameter_5001" name="k1" value="0.0807595"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -260,7 +260,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_0" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_5000" name="k1" value="0.0010554"/>
+          <Constant key="Parameter_5000" name="k1" value="0.65353"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -288,35 +288,35 @@ Reaction scheme where the products are created from the reactants and the change
           <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Compartments[compartment],Vector=Metabolites[B]" simulationType="reactions" type="Species" value="6.0221408570000005e+22"/>
         </ModelParameterGroup>
         <ModelParameterGroup cn="String=Initial Global Quantities" type="Group">
-          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_predator_breeds]" simulationType="fixed" type="ModelValue" value="0.10957119609487609"/>
-          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_predator_dies]" simulationType="fixed" type="ModelValue" value="0.70346200908761403"/>
-          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_prey_breeds]" simulationType="fixed" type="ModelValue" value="0.68942196504736353"/>
-          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_prey_dies]" simulationType="fixed" type="ModelValue" value="0.0010553980621641479"/>
+          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_predator_breeds]" simulationType="fixed" type="ModelValue" value="0.45560602344076961"/>
+          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_predator_dies]" simulationType="fixed" type="ModelValue" value="0.91496544676013714"/>
+          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_prey_breeds]" simulationType="fixed" type="ModelValue" value="0.080759496569434708"/>
+          <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Values[k_prey_dies]" simulationType="fixed" type="ModelValue" value="0.65352989239217585"/>
         </ModelParameterGroup>
         <ModelParameterGroup cn="String=Kinetic Parameters" type="Group">
           <ModelParameterGroup cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_breeds]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_breeds],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.10957119609487609">
+            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_breeds],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.45560602344076961">
               <InitialExpression>
                 &lt;CN=Root,Model=New Model_1,Vector=Values[k_predator_breeds],Reference=InitialValue&gt;
               </InitialExpression>
             </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_dies]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_dies],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.70346200908761403">
+            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[predator_dies],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.91496544676013714">
               <InitialExpression>
                 &lt;CN=Root,Model=New Model_1,Vector=Values[k_predator_dies],Reference=InitialValue&gt;
               </InitialExpression>
             </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_breeds]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_breeds],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.68942196504736353">
+            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_breeds],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.080759496569434708">
               <InitialExpression>
                 &lt;CN=Root,Model=New Model_1,Vector=Values[k_prey_breeds],Reference=InitialValue&gt;
               </InitialExpression>
             </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_dies]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_dies],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.0010553980621641479">
+            <ModelParameter cn="CN=Root,Model=New Model_1,Vector=Reactions[prey_dies],ParameterGroup=Parameters,Parameter=k1" simulationType="assignment" type="ReactionParameter" value="0.65352989239217585">
               <InitialExpression>
                 &lt;CN=Root,Model=New Model_1,Vector=Values[k_prey_dies],Reference=InitialValue&gt;
               </InitialExpression>
@@ -336,7 +336,7 @@ Reaction scheme where the products are created from the reactants and the change
       <StateTemplateVariable objectReference="ModelValue_3"/>
     </StateTemplate>
     <InitialState type="initialState">
-      0 6.0221408570000002e+20 6.0221408570000005e+22 1 0.10957119609487609 0.70346200908761403 0.68942196504736353 0.0010553980621641479 
+      0 6.0221408570000002e+20 6.0221408570000005e+22 1 0.45560602344076961 0.91496544676013714 0.080759496569434708 0.65352989239217585 
     </InitialState>
   </Model>
   <ListOfTasks>

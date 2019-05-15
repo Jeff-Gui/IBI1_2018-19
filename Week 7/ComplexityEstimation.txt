@@ -20,7 +20,7 @@ For 1st number, loop over the rest n-1 numbers
 For 2rd number, loop over the rest n-2 numbers
 ...
 For (n-1)th number, loop over the rest 1 number
--> 2 loops contribute 1+2+...+(n-1)=0.5n^2-0.5n ~ n^2 complexity
+-> 2 loops contribute 1*2*...(n-1)= (n-1)! complexity
 Inside each deepest loop, 6 operations all enter next level recursion -> no influence on overall complexity
 With n levels, the overall complexity:
-O(n^n^2)
+O((n-1)!^n)

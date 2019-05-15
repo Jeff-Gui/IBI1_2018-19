@@ -102,11 +102,14 @@ plt.show()
 #==========================File output=========================================
 """
 Store 4 parematers and two figures into the same file
-    e.g. csv file with four rows for four parameters and the additional column for figures
+    e.g. csv file with four rows for four parameters and the additional columns for figures
 Other parameters may include:
     1. maximun number of predator
     2. minmum number of prey
 """
+import pandas as pd
+max_prd = results[:,1].max()
+min_pre = results[:,2].max()
 
 
 
