@@ -53,12 +53,17 @@ def xml_to_cps():
     cpsTree.writexml(cpsFile)
     cpsFile.close()
 #=============================Change Values====================================
-pm = np.random.choice(range(100),4)/100
+
+pm = {}
 DOMTree = xml.dom.minidom.parse('predator-prey.xml')
 collection = DOMTree.documentElement
 model_it = collection.getElementsByTagName('parameter')
 for i in range(0,4):
-    model_it[i].setAttribute('value',str(pm[i]))
+    temp = np.random.sample()
+    pm_name = model_it[i].getAttribute('id')
+    print(pm_name,':',temp)
+    pm[pm_name]=temp
+    model_it[i].setAttribute('value',str(temp))
 filexml = open('predator-prey.xml','w')
 DOMTree.writexml(filexml)
 filexml.close()
@@ -77,8 +82,8 @@ for lines in fl[1:]:
 results = np.array(data)
 results = results.astype(np.float)
 # set labels with current values
-s1 = 'Predator (b=' + str(pm[0]) + ', d=' + str(pm[1]) + ')'
-s2 = 'Prey (b=' + str(pm[2]) + ', d=' + str(pm[3]) + ')'
+s1 = 'Predator (b=' + str(pm['k_predator_breeds']) + ', d=' + str(pm['k_predator_dies']) + ')'
+s2 = 'Prey (b=' + str(pm['k_prey_breeds']) + ', d=' + str(pm['k_prey_dies']) + ')'
 # plot time against predator & prey populaiton
 plt.plot(results[:,0],results[:,1], label=s1)
 plt.plot(results[:,0],results[:,2], label=s2)
@@ -94,9 +99,14 @@ plt.xlabel('predator population')
 plt.ylabel('prey populaition')
 plt.show()
 
-
-
-
+#==========================File output=========================================
+"""
+Store 4 parematers and two figures into the same file
+    e.g. csv file with four rows for four parameters and the additional column for figures
+Other parameters may include:
+    1. maximun number of predator
+    2. minmum number of prey
+"""
 
 
 
