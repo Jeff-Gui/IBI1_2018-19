@@ -24,4 +24,3 @@ For (n-1)th number, loop over the rest 1 number
 Inside each deepest loop, 6 operations all enter next level recursion -> no influence on overall complexity
 With n levels, the overall complexity:
 O(n^n^2)
-76 2580 
