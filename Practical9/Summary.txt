@@ -1,18 +1,22 @@
 Summary:
 
 human ~ mouse
-BLOSUM62 score: 1091 
+BLOSUM62 raw score: 1091 
+BLOSUM62 normalized score: 4.914
 Identity: 89.64%
 
 mouse ~ random
-BLOSUM62 score: -250 
+BLOSUM62 raw score: -250 
+BLOSUM62 normalized score: -1.126
 Identity: 5.86%
 
 human ~ random
-BLOSUM62 score: -250 
+BLOSUM62 raw score: -250
+BLOSUM62 normalized score: -1.126
 Identity: 5.41%
 
+BLOSUM62 raw score is normalized to the sequence length, which make it possible to compare relative score among alignments between sequences of different length.
 Human and mouse genes coding SOD2 protein are quite similar with nearly 90% identity.
-If two sequence are similar, there BLOSUM62 score is very large because amino acids remaining unchanged have positive scores. Substituted pairs have negative scores.
+If two sequence are similar, their BLOSUM62 score is very large because amino acids remaining unchanged have positive scores. Substituted pairs have negative scores.
 
-Interestingly, sequence with the same BLOSUM62 scores can have different identity levels.
+Interestingly, sequence with the same BLOSUM62 scores can have different identity levels. Therefore, a lot more parameters are required to evaluate two sequences more accurately.
