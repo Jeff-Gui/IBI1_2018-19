@@ -16,8 +16,8 @@ determine if it will recover this time
     3.1 create length-8 list with 0/1
     3.2 map each value to point's neighbours
         relative position of infected points' neighbours stored in dictionary
-        -1,1   0,1    1,1
-        -1,0          1,0
+        -1, 1  0, 1   1, 1
+        -1, 0         1, 0
         -1,-1  0,-1   1,-1
     3.3 set value of infected points to 1
         three special situations:
