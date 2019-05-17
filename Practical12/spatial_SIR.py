@@ -32,7 +32,7 @@ import matplotlib.pyplot as plt
 
 population = np.zeros((100,100)) #construct the whole population (100*100)
 outbreak = np.random.choice(range(100),2) #random choose an outbreak point
-population[outbreak[0],outbreak[1]] = 1 #infected donoted as 1
+population[outbreak[0],outbreak[1]] = 1 #infected denoted as 1
 
 
 beta = 0.3
@@ -50,8 +50,8 @@ for p in range(0,100):
                         population[ift[0][i]+dict[item][0], ift[1][i]+dict[item][1]] = 1 #set infected to 1
                 except:
                     pass
-    ift = np.where(population==1) #find the infected points
-    rcv = np.random.choice(range(2),len(ift[0]),p=[gamma,1-gamma]) #make a list of possible value(0 for recovr, 1 for stay infected)
+    ift = np.where(population==1) #find the infected points again
+    rcv = np.random.choice(range(2),len(ift[0]),p=[gamma,1-gamma]) #make a list of possible value(0 for recover, 1 for stay infected)
     for j in range(0,len(ift[0])):
         if rcv[j]==0: #find points to be recovered
             population[ift[0][j],ift[1][j]]=0.5
