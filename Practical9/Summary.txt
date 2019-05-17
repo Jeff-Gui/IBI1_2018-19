@@ -2,17 +2,17 @@ Summary:
 
 human ~ mouse
 BLOSUM62 raw score: 1091 
-BLOSUM62 normalized score: 4.914
+BLOSUM62 normalized score (rounded): 4.914
 Identity: 89.64%
 
 mouse ~ random
 BLOSUM62 raw score: -250 
-BLOSUM62 normalized score: -1.126
+BLOSUM62 normalized score (rounded): -1.126
 Identity: 5.86%
 
 human ~ random
 BLOSUM62 raw score: -250
-BLOSUM62 normalized score: -1.126
+BLOSUM62 normalized score (rounded): -1.126
 Identity: 5.41%
 
 BLOSUM62 raw score is normalized to the sequence length, which make it possible to compare relative score among alignments between sequences of different length.
