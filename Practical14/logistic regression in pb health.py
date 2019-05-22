@@ -42,16 +42,21 @@ print(df_regress['Gender'].unique())
 df_regress['Hospitalized?'] = df_regress['Hospitalized?'].map({'Yes':1,'yes':1,'no':0,'No':0})
 df_regress['Swine Contact?'] = df_regress['Swine Contact?'].map({'No':0,'no':0,'yes':1,'Yes':1})
 df_regress['Attended Agricultural Event?'] = df_regress['Attended Agricultural Event?'].map({'No':0,'no':0,'yes':1,'Yes':1})
+# Set virus strain to be analysed to 1, and others 0
 df_regress['Virus Strain'] = df_regress['Virus Strain'].map({'Influenza A H3N2v':1,'Influenza A H1N1v':0,'Influenza A H1N2v':0,'Influenza A H7N2':0})
-for column in df_regress:
-    print(column, df_regress[column].unique())
+#for column in df_regress:
+#    print(column, df_regress[column].unique())
 
 #=================logistic regression==========================================
 endog = df_regress['Virus Strain'] #endogenous: dependent variable
 exog = sm.add_constant(df_regress[['Age','Gender','Hospitalized?','Swine Contact?','Attended Agricultural Event?']]) #exogenous: independent variables
 logit = smf.Logit(endog,exog)
 result = logit.fit()
-result.summary()
+print(result.summary())
 
+import numpy as np
+
+print('Odds ratios:')
+print(np.exp(result.params))
 
 
